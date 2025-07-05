@@ -12,8 +12,12 @@ class Driver(Document):
 
 	# this is the controller hook
 	def before_save(self):
-		print("================= Running the hook before_save Driver")
-		self.full_name = f"{self.first_name} {self.last_name}"
+		# print("================= Running the hook before_save Driver")
+		# if self.last_name:
+		# 	self.full_name = f"{self.first_name} {self.last_name}"
+		# else:
+		# 	self.full_name = self.first_name
+		pass # customization via server script
 
 	def send_alert(self):
 		print("Sending message")
