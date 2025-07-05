@@ -123,6 +123,11 @@ app_license = "mit"
 # permission_query_conditions = {
 # 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
 # }
+
+permission_query_conditions = {
+	"Vehicle": "rental.api.get_query_conditions_for_vehicle",
+}
+
 #
 # has_permission = {
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
@@ -139,6 +144,12 @@ app_license = "mit"
 # 		"on_trash": "method"
 # 	}
 # }
+
+doc_events = {
+	"ToDo": {
+		"before_insert": "rental.api.throw_emoji"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
@@ -160,6 +171,17 @@ app_license = "mit"
 # 		"rental.tasks.monthly"
 # 	],
 # }
+
+scheduler_events = {
+	# "weekly": [
+	# 	"rental.api.send_payment_reminders"
+	# ],
+    "cron": {
+        "* * * * *": [
+            "rental.api.send_payment_reminders"
+		]
+	}
+}
 
 # Testing
 # -------

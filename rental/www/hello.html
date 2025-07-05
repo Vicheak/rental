@@ -1,0 +1,16 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+    <h1>Hello!</h1>
+
+    {% set user = frappe.session %}
+
+    <!-- <ul>
+        <li>{{ user }}</li>
+        <li>{{ user.user }}</li>
+    </ul> -->
+
+    <h2>Welcome {{ user.user }}</h2>
+
+    <h2>{{ my_secret_emoji }}</h2>
+{% endblock %}
